@@ -78,7 +78,6 @@ MainWindow::~MainWindow()
 void MainWindow::on_radioButton_2_pressed()
 {
     nv=1;
-    //ui -> textBrowser_2->append(QString::number(nv));
     ui -> lcdNumber ->display(nv);
 
 }
@@ -129,11 +128,6 @@ void MainWindow::on_pushButton_5_clicked()
 void MainWindow::on_pushButton_6_clicked()
 {
       system("poweroff");
-//    QProcess* ping_process = new QProcess(this);
-//    connect(ping_process, &QProcess::readyReadStandardOutput, [=] {
-//        ui->textBrowser_2->append(ping_process->readAllStandardOutput());
-//    });
-//    ping_process->QProcess::start("ping", QStringList() << "8.8.8.8");
 }
 
 
