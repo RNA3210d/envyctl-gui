@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>809</width>
-    <height>332</height>
+    <width>808</width>
+    <height>351</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -31,7 +31,7 @@
          <property name="maximumSize">
           <size>
            <width>16777215</width>
-           <height>90</height>
+           <height>96</height>
           </size>
          </property>
          <property name="documentTitle">
@@ -89,7 +89,8 @@ hr { height: 1px; border-width: 0; }
           <string>NOVideo</string>
          </property>
          <property name="icon">
-          <iconset theme="nvidia"/>
+          <iconset theme="nvidia">
+           <normaloff>.</normaloff>.</iconset>
          </property>
         </widget>
        </item>
@@ -99,7 +100,8 @@ hr { height: 1px; border-width: 0; }
           <string>Hybrid</string>
          </property>
          <property name="icon">
-          <iconset theme="prime-hybrid"/>
+          <iconset theme="prime-hybrid">
+           <normaloff>.</normaloff>.</iconset>
          </property>
         </widget>
        </item>
@@ -109,7 +111,8 @@ hr { height: 1px; border-width: 0; }
           <string>Integrated</string>
          </property>
          <property name="icon">
-          <iconset theme="cpu"/>
+          <iconset theme="cpu">
+           <normaloff>.</normaloff>.</iconset>
          </property>
         </widget>
        </item>
@@ -133,7 +136,8 @@ hr { height: 1px; border-width: 0; }
           <string>Info</string>
          </property>
          <property name="icon">
-          <iconset theme="dialog-information"/>
+          <iconset theme="dialog-information">
+           <normaloff>.</normaloff>.</iconset>
          </property>
         </widget>
        </item>
@@ -143,7 +147,8 @@ hr { height: 1px; border-width: 0; }
           <string>Refresh</string>
          </property>
          <property name="icon">
-          <iconset theme="view-refresh"/>
+          <iconset theme="view-refresh">
+           <normaloff>.</normaloff>.</iconset>
          </property>
         </widget>
        </item>
@@ -153,7 +158,19 @@ hr { height: 1px; border-width: 0; }
           <string>Set</string>
          </property>
          <property name="icon">
-          <iconset theme="object-select"/>
+          <iconset theme="object-select">
+           <normaloff>.</normaloff>.</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_6">
+         <property name="text">
+          <string>ShutDown</string>
+         </property>
+         <property name="icon">
+          <iconset theme="system-shutdown">
+           <normaloff>.</normaloff>.</iconset>
          </property>
         </widget>
        </item>
@@ -163,7 +180,8 @@ hr { height: 1px; border-width: 0; }
           <string>Reboot</string>
          </property>
          <property name="icon">
-          <iconset theme="system-reboot"/>
+          <iconset theme="system-reboot">
+           <normaloff>.</normaloff>.</iconset>
          </property>
         </widget>
        </item>
@@ -173,7 +191,8 @@ hr { height: 1px; border-width: 0; }
           <string>Exit</string>
          </property>
          <property name="icon">
-          <iconset theme="application-exit"/>
+          <iconset theme="application-exit">
+           <normaloff>.</normaloff>.</iconset>
          </property>
         </widget>
        </item>
@@ -187,7 +206,7 @@ hr { height: 1px; border-width: 0; }
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>809</width>
+     <width>808</width>
      <height>22</height>
     </rect>
    </property>
@@ -195,10 +214,16 @@ hr { height: 1px; border-width: 0; }
     <property name="title">
      <string>Envycontrol</string>
     </property>
+    <addaction name="actionSource"/>
    </widget>
    <addaction name="menuEnvycontrol"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionSource">
+   <property name="text">
+    <string>Source</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections>
@@ -209,12 +234,12 @@ hr { height: 1px; border-width: 0; }
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>768</x>
-     <y>252</y>
+     <x>798</x>
+     <y>297</y>
     </hint>
     <hint type="destinationlabel">
      <x>766</x>
-     <y>358</y>
+     <y>350</y>
     </hint>
    </hints>
   </connection>

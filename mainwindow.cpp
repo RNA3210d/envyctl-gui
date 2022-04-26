@@ -13,6 +13,7 @@
 #include <QFileDialog>
 #include <QFile>
 #include <QTextStream>
+int nv=88;
 using namespace std;
 
 std::string com1()
@@ -63,6 +64,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui -> lcdNumber ->display(nv);
     const QString s1 = QString::fromStdString( com1() );
     ui -> textBrowser_2->append(s1);
 }
@@ -75,31 +77,34 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_radioButton_2_pressed()
 {
-    int nv=1;
-    ui -> textBrowser_2->append(QString::number(nv));
+    nv=1;
+    //ui -> textBrowser_2->append(QString::number(nv));
     ui -> lcdNumber ->display(nv);
+
 }
 
 
 void MainWindow::on_radioButton_3_pressed()
 {
-    int nv=2;
+    nv=2;
     ui -> lcdNumber ->display(nv);
 }
 
 
 void MainWindow::on_radioButton_pressed()
 {
-    int nv=0;
+    nv=0;
     ui -> lcdNumber ->display(nv);
 }
 
 
 void MainWindow::on_pushButton_3_clicked()
 {
+
     const QString s="";
     ui -> textBrowser_2 -> setText(s);
     const QString s1 = QString::fromStdString( com1() );
+    system("notify-send 'Title' \"Test msg\"");
     ui -> textBrowser_2->append(s1);
 }
 
@@ -118,5 +123,50 @@ void MainWindow::on_pushButton_5_clicked()
     ui -> textBrowser_2->append(s2);
     const QString s1 = QString::fromStdString( com1() );
     ui -> textBrowser_2->append(s1);
+}
+
+
+void MainWindow::on_pushButton_6_clicked()
+{
+      system("poweroff");
+//    QProcess* ping_process = new QProcess(this);
+//    connect(ping_process, &QProcess::readyReadStandardOutput, [=] {
+//        ui->textBrowser_2->append(ping_process->readAllStandardOutput());
+//    });
+//    ping_process->QProcess::start("ping", QStringList() << "8.8.8.8");
+}
+
+
+void MainWindow::on_pushButton_clicked()
+{
+    if(nv==2)
+    {
+        QProcess p;
+        p.QProcess::start("pkexec envycontrol -s hybrid");
+        p.waitForFinished(-1);
+        ui->textBrowser_2->setText(p.readAllStandardOutput());
+
+    }
+    if(nv==0)
+    {
+        QProcess p;
+        p.QProcess::start("pkexec envycontrol -s integrated");
+        p.waitForFinished(-1);
+        ui->textBrowser_2->setText(p.readAllStandardOutput());
+
+    }
+    if(nv==1)
+    {
+        QProcess p;
+        p.QProcess::start("pkexec envycontrol -s nvidia");
+        p.waitForFinished(-1);
+        ui->textBrowser_2->setText(p.readAllStandardOutput());
+
+    }
+    if(nv=88)
+    {
+        const QString sts="Select a mode before pressing Set...";
+        ui ->statusbar->showMessage(sts,2000);
+    }
 }
 
