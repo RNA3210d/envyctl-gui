@@ -1,4 +1,6 @@
 #include "mainwindow.h"
+#include <QtGui/QAction>
+
 #include "./ui_mainwindow.h"
 
 #include <QProcess>
@@ -15,6 +17,10 @@
 #include <QTextStream>
 int nv=88;
 using namespace std;
+
+QString verb="";
+
+
 
 std::string com1()
 {
@@ -142,11 +148,12 @@ void MainWindow::on_pushButton_clicked()
 
     }
     if(nv==0)
-    {
-        QProcess p;
-        p.QProcess::start("pkexec envycontrol -s integrated");
-        p.waitForFinished(-1);
-        ui->textBrowser_2->setText(p.readAllStandardOutput());
+    {   QProcess *pr;
+        pr = new QProcess(this);
+        pr->start("pkexec", QStringList() << "envycontrol" << "-s" << "integrated" <<verb);
+        QCoreApplication::processEvents();
+        pr->waitForFinished(-1);
+        ui->textBrowser_2->setText(pr->readAllStandardOutput());
 
     }
     if(nv==1)
@@ -157,10 +164,38 @@ void MainWindow::on_pushButton_clicked()
         ui->textBrowser_2->setText(p.readAllStandardOutput());
 
     }
-    if(nv=88)
+    if(nv==88)
     {
         const QString sts="Select a mode before pressing Set...";
         ui ->statusbar->showMessage(sts,2000);
     }
+}
+
+
+void MainWindow::on_radioButton_clicked()
+{
+    nv=0;
+    ui -> lcdNumber ->display(nv);
+}
+
+
+void MainWindow::on_comboBox_currentIndexChanged(int index)
+{
+
+}
+
+
+void MainWindow::on_checkBox_stateChanged(int arg1)
+{
+    cout << "Verbose: " << arg1 << endl;
+    if(arg1==2)
+    {
+        verb= "--verbose";
+    }
+    if(arg1==0)
+    {
+        verb= "";
+    }
+
 }
 

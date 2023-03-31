@@ -32,6 +32,12 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void on_radioButton_clicked();
+
+    void on_comboBox_currentIndexChanged(int index);
+
+    void on_checkBox_stateChanged(int arg1);
+
 private:
     Ui::MainWindow *ui;
 };
